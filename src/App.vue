@@ -42,4 +42,8 @@
   .tags-in-table{
     margin-left: 10px;
   }
+  
+  .full-width{
+    width: 100%;
+  }
 </style>
