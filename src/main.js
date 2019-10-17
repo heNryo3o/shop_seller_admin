@@ -26,7 +26,9 @@ import '@/permission' // permission control
 
 
 // set ElementUI lang to EN
-Vue.use(ElementUI, { locale })
+Vue.use(ElementUI, {
+  locale
+})
 
 Vue.config.productionTip = false
 
