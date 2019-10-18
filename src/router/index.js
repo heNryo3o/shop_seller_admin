@@ -116,7 +116,7 @@ export const asyncRoutes = [{
         component: () => import('@/views/store/store-list'),
         name: 'StoreList',
         meta: {
-          title: '商家列表'
+          title: '店铺信息管理'
         }
       },
       {

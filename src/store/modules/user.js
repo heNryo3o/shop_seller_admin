@@ -16,6 +16,9 @@ const mutations = {
   SET_NAME: (state, name) => {
     state.name = name
   },
+  SET_ID: (state, id) => {
+    state.store_id = id
+  },
   SET_AVATAR: (state, avatar) => {
     state.avatar = avatar
   },
@@ -60,7 +63,7 @@ const actions = {
 	        reject('登录失败，请重新登录！')
 	      }
 
-	      const { true_name, avatar, duty, department, roles } = data
+	      const { true_name, avatar, id, roles } = data
 
 	      // roles must be a non-empty array
 	      if (!roles || roles.length <= 0) {
@@ -69,8 +72,7 @@ const actions = {
 
 	      commit('SET_NAME', true_name)
 	      commit('SET_AVATAR', avatar)
-	      commit('SET_DUTY', duty)
-	      commit('SET_DEPARTMENT', department)
+        commit('SET_ID', id)
 	      commit('SET_ROLES', roles)
 	      resolve(data)
 	    }).catch(error => {
