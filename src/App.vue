@@ -46,4 +46,8 @@
   .full-width{
     width: 100%;
   }
+  
+  .el-drawer__body{
+    overflow-y: scroll;
+  }
 </style>

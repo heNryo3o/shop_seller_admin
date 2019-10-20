@@ -75,39 +75,11 @@ export const constantRoutes = [{
 ]
 
 export const asyncRoutes = [{
-    path: '/user',
-    component: Layout,
-    name: 'User',
-    meta: {
-      title: '用户管理',
-      icon: 'user',
-      breadcrumb: false
-    },
-    children: [{
-        path: 'user-list',
-        component: () => import('@/views/user/user-list'),
-        name: 'UserList',
-        meta: {
-          title: '用户列表'
-        }
-      },
-      {
-        path: 'user-log',
-        component: () => import('@/views/user/user-log'),
-        name: 'UserLog',
-        meta: {
-          title: '登录注册日志'
-        }
-      }
-    ]
-  },
-
-  {
     path: '/store',
     component: Layout,
     name: 'Store',
     meta: {
-      title: '商家管理',
+      title: '店铺管理',
       icon: 'store',
       breadcrumb: false
     },
@@ -116,7 +88,7 @@ export const asyncRoutes = [{
         component: () => import('@/views/store/store-list'),
         name: 'StoreList',
         meta: {
-          title: '店铺信息管理'
+          title: '店铺基本信息'
         }
       },
       {
@@ -129,114 +101,21 @@ export const asyncRoutes = [{
       }
     ]
   },
-
   {
-    path: '/admin',
+    path: '/chat',
     component: Layout,
-    name: 'Admin',
+    name: 'Chat',
     meta: {
-      roles: ['admin', 'role', 'permission'],
-      title: '员工管理',
-      icon: 'admin',
-      breadcrumb: false
-    },
-    children: [{
-        path: 'admin',
-        component: () => import('@/views/admin/admin'),
-        name: 'AdminList',
-        meta: {
-          roles: ['admin'],
-          title: '管理员'
-        }
-      },
-      {
-        path: 'role',
-        component: () => import('@/views/admin/role'),
-        name: 'Role',
-        meta: {
-          roles: ['role'],
-          title: '角色管理'
-        }
-      },
-      {
-        path: 'permission',
-        component: () => import('@/views/admin/permission'),
-        name: 'Permission',
-        meta: {
-          roles: ['permission'],
-          title: '权限管理'
-        }
-      }
-    ]
-  },
-
-  {
-    path: '/push',
-    component: Layout,
-    name: 'Push',
-    meta: {
-      title: '消息通知',
+      title: '客服消息',
       icon: 'message',
       breadcrumb: false
     },
     children: [{
-        path: 'template-list',
-        component: () => import('@/views/push/template-list'),
-        name: 'TemplateList',
+        path: 'chat',
+        component: () => import('@/views/chat/chat'),
+        name: 'Chat',
         meta: {
-          title: '消息模版'
-        }
-      },
-      {
-        path: 'push-logs',
-        component: () => import('@/views/push/push-logs'),
-        name: 'PushLogs',
-        meta: {
-          title: '推送日志'
-        }
-      },
-    ]
-  },
-
-  {
-    path: '/system',
-    component: Layout,
-    name: 'System',
-    meta: {
-      title: '系统设置',
-      icon: 'setting',
-      breadcrumb: false
-    },
-    children: [{
-        path: 'base',
-        component: () => import('@/views/system/base'),
-        name: 'Base',
-        meta: {
-          title: '基本设置'
-        }
-      },
-      {
-        path: 'areas',
-        component: () => import('@/views/system/areas'),
-        name: 'Roles',
-        meta: {
-          title: '地区管理'
-        }
-      },
-      {
-        path: 'category',
-        component: () => import('@/views/system/category'),
-        name: 'Category',
-        meta: {
-          title: '分类管理'
-        }
-      },
-      {
-        path: 'file',
-        component: () => import('@/views/system/file'),
-        name: 'File',
-        meta: {
-          title: '文件上传记录'
+          title: '客服消息'
         }
       }
     ]

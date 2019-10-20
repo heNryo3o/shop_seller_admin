@@ -30,7 +30,7 @@
           </el-col>
         </el-row>
 
-        <el-row>
+        <el-row v-if="form.is_online == 2">
           <el-col :sm="12">
             <el-form-item label="所属商圈：" prop="shangquan">
               <el-input v-model="form.shangquan" placeholder="请填写所属商圈" />
@@ -39,6 +39,21 @@
           <el-col :sm="12">
             <el-form-item label="人均消费(元)：" prop="average_cost">
               <el-input v-model="form.average_cost" placeholder="请填写人均消费金额" />
+            </el-form-item>
+          </el-col>
+        </el-row>
+
+        <el-row v-if="form.is_online == 2">
+          <el-col :sm="12">
+            <el-form-item label="营业时间：" prop="open_time">
+              <el-input v-model="form.open_time" placeholder="请填写营业时间,如 9:00AM - 8:30PM" />
+            </el-form-item>
+          </el-col>
+          <el-col :sm="12">
+            <el-form-item label="店内福利：" prop="fuli">
+              <el-checkbox-group v-model="form.fuli">
+                <el-checkbox v-for="item in fuliOptions" :label="item" :key="item">{{item}}</el-checkbox>
+              </el-checkbox-group>
             </el-form-item>
           </el-col>
         </el-row>
@@ -57,13 +72,19 @@
 
 <script>
   import areaOptions from '@/assets/area.json'
-  import { edit,getInfo } from '@/api/store.js'
-  import { getCategory } from '@/api/category.js'
+  import {
+    edit,
+    getInfo
+  } from '@/api/store.js'
+  import {
+    getCategory
+  } from '@/api/category.js'
   export default {
     data() {
       return {
         areaOptions: areaOptions,
         categoryOptions: [],
+        fuliOptions: ['免费wifi','免费停车'],
         form: {},
         uploadUrl: process.env.VUE_APP_BASE_API + '/system/upload',
         uploadHeaders: {},
@@ -102,13 +123,13 @@
     },
     methods: {
       getCategory() {
-          getCategory().then(response => {
-            this.categoryOptions = response.data.options
-          })
+        getCategory().then(response => {
+          this.categoryOptions = response.data.options
+        })
       },
-      getInfo(){
+      getInfo() {
         getInfo({}).then(response => {
-           this.form = response.data
+          this.form = response.data
         })
       },
       submit() {
@@ -123,7 +144,6 @@
                 duration: 2000
               })
               this.$emit('getList')
-              this.handleClose()
             })
           } else {
             this.$message({

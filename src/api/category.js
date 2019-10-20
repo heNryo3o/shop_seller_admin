@@ -40,3 +40,10 @@ export function getCategory() {
     method: 'get',
   })
 }
+
+export function getSubCategory() {
+  return request({
+    url: model+'/sub-options',
+    method: 'get',
+  })
+}

@@ -3,7 +3,7 @@
     <el-button icon="el-icon-upload" size="mini" type="primary" @click=" dialogVisible=true">
       上传图片
     </el-button>
-    <el-dialog :visible.sync="dialogVisible">
+    <el-dialog :visible.sync="dialogVisible" :modal="false">
       <el-upload
         :multiple="true"
         :file-list="fileList"
@@ -55,7 +55,7 @@ export default {
     handleSubmit() {
       const arr = Object.keys(this.listObj).map(v => this.listObj[v])
       if (!this.checkAllSuccess()) {
-        this.$message('Please wait for all images to be uploaded successfully. If there is a network problem, please refresh the page and upload again!')
+        this.$message('请等待图片上传完毕!')
         return
       }
       this.$emit('successCBK', arr)
