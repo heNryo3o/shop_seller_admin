@@ -45,7 +45,7 @@ export default {
       dialogVisible: false,
       listObj: {},
       fileList: [],
-      uploadUrl: process.env.VUE_APP_UPLOAD_API
+      uploadUrl: process.env.VUE_APP_BASE_API + '/system/upload',
     }
   },
   methods: {
