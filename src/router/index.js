@@ -102,6 +102,25 @@ export const asyncRoutes = [{
     ]
   },
   {
+      path: '/order',
+      component: Layout,
+      name: 'Order',
+      meta: {
+        title: '订单管理',
+        icon: 'order',
+        breadcrumb: false
+      },
+      children: [{
+          path: 'order',
+          component: () => import('@/views/order/order'),
+          name: 'Order',
+          meta: {
+            title: '订单管理'
+          }
+        }
+      ]
+    },
+  {
     path: '/chat',
     component: Layout,
     name: 'Chat',

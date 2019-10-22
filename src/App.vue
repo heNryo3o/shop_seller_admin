@@ -42,12 +42,24 @@
   .tags-in-table{
     margin-left: 10px;
   }
-  
+
   .full-width{
     width: 100%;
   }
-  
+
   .el-drawer__body{
     overflow-y: scroll;
+  }
+
+  .mb-20{
+    margin-bottom: 20px;
+  }
+
+  .mb-30{
+    margin-bottom: 30px;
+  }
+  
+  .mb-10{
+    margin-bottom: 10px;
   }
 </style>
