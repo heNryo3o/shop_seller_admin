@@ -58,6 +58,13 @@
               </el-button>
             </el-col>
           </el-row>
+          <el-row style="margin-top: 20px;" v-if="info.status == 6">
+            <el-col :sm="24" class="button-group">
+              <el-button v-waves size="small" type="primary" icon="el-icon-check" @click="agreeRefund">
+                同意退款
+              </el-button>
+            </el-col>
+          </el-row>
         </div>
       </el-card>
     </el-drawer>
@@ -92,6 +99,22 @@
       },
       handleOpen() {
         this.info = this.orderInfo
+      },
+      agreeRefund() {
+        agreeRefund(
+          {
+            id: this.info.id
+          }
+        ).then(response => {
+          this.$emit('updateList')
+          this.$notify({
+            title: '成功',
+            message: '同意退款成功',
+            type: 'success',
+            duration: 2000
+          })
+          this.handleClose()
+        })
       },
       sendProduct() {
         sendProduct(

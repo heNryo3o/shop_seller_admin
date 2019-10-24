@@ -25,3 +25,11 @@ export function sendProduct(data) {
     data
   })
 }
+
+export function agreeRefund(data) {
+  return request({
+    url: model + '/agree-refund',
+    method: 'post',
+    data
+  })
+}
