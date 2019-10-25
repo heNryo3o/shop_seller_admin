@@ -33,3 +33,27 @@ export function agreeRefund(data) {
     data
   })
 }
+
+export function moneyLog(data) {
+  return request({
+    url: model + '/money-log',
+    method: 'get',
+    params: data
+  })
+}
+
+export function cashLog(data) {
+  return request({
+    url: model + '/cash-log',
+    method: 'get',
+    params: data
+  })
+}
+
+export function cashSubmit(data) {
+  return request({
+    url: model + '/cash-submit',
+    method: 'post',
+    data
+  })
+}

@@ -102,24 +102,40 @@ export const asyncRoutes = [{
     ]
   },
   {
-      path: '/order',
-      component: Layout,
-      name: 'Order',
-      meta: {
-        title: '订单管理',
-        icon: 'order',
-        breadcrumb: false
-      },
-      children: [{
-          path: 'order',
-          component: () => import('@/views/order/order'),
-          name: 'Order',
-          meta: {
-            title: '订单管理'
-          }
-        }
-      ]
+    path: '/account',
+    component: Layout,
+    name: 'Account',
+    meta: {
+      title: '财务管理',
+      icon: 'account',
+      breadcrumb: false
     },
+    children: [{
+        path: 'order',
+        component: () => import('@/views/account/order'),
+        name: 'Order',
+        meta: {
+          title: '订单管理'
+        }
+      },
+      {
+        path: 'money',
+        component: () => import('@/views/account/money'),
+        name: 'Money',
+        meta: {
+          title: '收益明细'
+        }
+      },
+      {
+        path: 'cash',
+        component: () => import('@/views/account/cash'),
+        name: 'Cash',
+        meta: {
+          title: '提现申请'
+        }
+      }
+    ]
+  },
   {
     path: '/chat',
     component: Layout,
@@ -130,14 +146,13 @@ export const asyncRoutes = [{
       breadcrumb: false
     },
     children: [{
-        path: 'chat',
-        component: () => import('@/views/chat/chat'),
-        name: 'Chat',
-        meta: {
-          title: '客服消息'
-        }
+      path: 'chat',
+      component: () => import('@/views/chat/chat'),
+      name: 'Chat',
+      meta: {
+        title: '客服消息'
       }
-    ]
+    }]
   },
   // 404 page must be placed at the end !!!
   {
