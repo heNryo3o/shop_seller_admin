@@ -31,9 +31,9 @@
                       style="width: 230px;" />
                   </el-form-item>
                   <el-form-item label="封面图：" prop="thumb">
-                    <el-upload class="avatar-uploader" v-model="info.thumb" :action="uploadUrl" :show-file-list="false"
+                    <el-upload class="avatar-uploader" :action="uploadUrl" :show-file-list="false"
                       :on-success="handleUploadSuccess" :before-upload="beforeUpload">
-                      <img v-if="info.thumb" :src="info.thumb" class="avatar">
+                      <img v-if="thumb" :src="thumb" class="avatar">
                       <i v-else class="el-icon-plus avatar-uploader-icon" />
                     </el-upload>
                   </el-form-item>
@@ -119,7 +119,8 @@
         info: {
           id: 0,
           name: '',
-          content: ''
+          content: '',
+          thumb: ''
         },
         uploadUrl: process.env.VUE_APP_BASE_API + '/system/upload',
         previewVisible: false,
@@ -129,12 +130,14 @@
         freshEditor: false,
         loading: false,
         loaded: false,
-        cateOptions: []
+        cateOptions: [],
+        thumb: ''
       }
     },
     methods: {
       handleUploadSuccess(res) {
         this.info.thumb = res.data.preview_url
+        this.thumb = res.data.preview_url
       },
       beforeUpload() {
 
