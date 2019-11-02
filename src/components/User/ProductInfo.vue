@@ -140,8 +140,13 @@
         this.info.thumb = res.data.preview_url
         this.thumb = res.data.preview_url
       },
-      beforeUpload() {
-
+      beforeUpload(file) {
+        const isLt2M = file.size / 1024 / 1024 < 2
+      
+        if (!isLt2M) {
+          this.$message.error('上传图片大小不能超过 2MB!')
+        }
+        return isLt2M
       },
       handlePreview(url) {
         this.previewImageUrl = url
